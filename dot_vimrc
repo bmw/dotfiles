@@ -197,10 +197,8 @@ set autoindent
 
 " Stop littering files everywhere. We use different values form vim and nvim
 " as they have different default behavior.
-if has('nvim')
-    set backupdir=$XDG_STATE_HOME/nvim/backup//,.
-else
-    set backupdir=~/.vim/backup//,.
+set backupdir=~/.vim/backup//,.
+if !has('nvim')
     set directory=~/.vim/swp//,.
     set undodir=~/.vim/undo//,.
 endif
