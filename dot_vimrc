@@ -195,10 +195,7 @@ set number
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set autoindent
 
-" Stop littering files everywhere. We use different values form vim and nvim
-" as they have different default behavior.
+" Stop littering files everywhere
 set backupdir=~/.vim/backup//,.
-if !has('nvim')
-    set directory=~/.vim/swp//,.
-    set undodir=~/.vim/undo//,.
-endif
+set directory=~/.vim/swp//,.
+set undodir=~/.vim/undo//,.
