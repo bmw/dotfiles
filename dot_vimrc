@@ -196,6 +196,14 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set autoindent
 
 " Stop littering files everywhere
-set backupdir=~/.vim/backup//,.
-set directory=~/.vim/swp//,.
-set undodir=~/.vim/undo//,.
+if has('nvim')
+    " Create nvim's default directories on Linux
+    silent !mkdir ~/.local/state/nvim/{backup,swap,undo} > /dev/null 2>&1
+    " Prefer nvim/backup over .
+    set backupdir=~/.local/state/nvim/backup//,.
+else
+    silent !mkdir ~/.vim/{backup,swp,undo} > /dev/null 2>&1
+    set backupdir=~/.vim/backup//,.
+    set directory=~/.vim/swp//,.
+    set undodir=~/.vim/undo//,.
+endif
