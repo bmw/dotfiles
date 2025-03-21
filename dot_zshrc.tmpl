@@ -1,4 +1,5 @@
-{{ if eq .chezmoi.hostname "eff-bmw" -}}
+{{- $computerName := output "scutil" "--get" "ComputerName" | trim -}}
+{{ if eq $computerName "eff-bmw" -}}
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -79,7 +80,7 @@ PATH="$HOMEBREW_PATH/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$HOMEBREW_PATH/opt/gnu-sed/libexec/gnubin:$PATH"
 unset HOMEBREW_PATH
 
-{{ if eq .chezmoi.hostname "eff-bmw" -}}
+{{ if eq $computerName "eff-bmw" -}}
 export PATH="$HOME/bin:$PATH"
 
 # Which plugins would you like to load?
