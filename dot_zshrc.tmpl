@@ -121,7 +121,7 @@ source $ZSH/oh-my-zsh.sh
 eval "$(pyenv init -)"
 ulimit -n 1024
 alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
-alias le='ssh bmw@{{ .server }}'
+alias le='ssh brad@{{ .server }}'
 {{ end -}}
 alias bu='brew update && brew upgrade'
 alias ls='ls --color=tty -v'
