@@ -71,6 +71,7 @@ export GOPATH="$HOME/Development/go"
 
 # I set up Homebrew here so it is available to Oh My Zsh when loading plugins.
 HOMEBREW_PATH="/opt/homebrew"
+export CFLAGS="$CFLAGS -I$HOMEBREW_PATH/include -L$HOMEBREW_PATH/lib"
 {{ else -}}
 HOMEBREW_PATH="/usr/local"
 PATH="$HOMEBREW_PATH/sbin:$PATH"
