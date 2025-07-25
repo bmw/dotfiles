@@ -1,17 +1,18 @@
 " BEGIN SECTION
 "
-" This was copied from $VIMRUNTIME/defaults.vim from vim (not nvim).
+" This was initially copied from $VIMRUNTIME/defaults.vim from vim (not nvim).
+" Undesired sections have since been commented out.
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
 
-" Bail out if something that ran earlier, e.g. a system wide vimrc, does not
-" want Vim to use these default values.
-if exists('skip_defaults_vim')
-  finish
-endif
+"" Bail out if something that ran earlier, e.g. a system wide vimrc, does not
+"" want Vim to use these default values.
+"if exists('skip_defaults_vim')
+"  finish
+"endif
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -198,11 +199,11 @@ set autoindent
 " Stop littering files everywhere
 if has('nvim')
     " Create nvim's default directories on Linux
-    silent !mkdir ~/.local/state/nvim/{backup,swap,undo} > /dev/null 2>&1
+    silent !mkdir -p ~/.local/state/nvim/{backup,swap,undo} > /dev/null 2>&1
     " Prefer nvim/backup over .
     set backupdir=~/.local/state/nvim/backup//,.
 else
-    silent !mkdir ~/.vim/{backup,swp,undo} > /dev/null 2>&1
+    silent !mkdir -p ~/.vim/{backup,swp,undo} > /dev/null 2>&1
     set backupdir=~/.vim/backup//,.
     set directory=~/.vim/swp//,.
     set undodir=~/.vim/undo//,.
