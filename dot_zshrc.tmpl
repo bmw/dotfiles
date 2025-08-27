@@ -82,8 +82,6 @@ export PATH="$HOMEBREW_PATH/opt/gnu-sed/libexec/gnubin:$PATH"
 unset HOMEBREW_PATH
 
 {{ if eq $computerName "eff-bmw" -}}
-export PATH="$HOME/bin:$PATH"
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -123,6 +121,7 @@ eval "$(pyenv init -)"
 ulimit -n 1024
 alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
 alias le='ssh brad@{{ .server }}'
+export PATH="$(brew --prefix rustup)/bin:$PATH"
 {{ end -}}
 alias bu='brew update && brew upgrade'
 alias ls='ls --color=tty -v'
